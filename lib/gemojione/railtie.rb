@@ -4,8 +4,8 @@ require 'rails'
 module Gemojione
   class Railtie < Rails::Railtie
     initializer "gemojione.defaults" do
-      Gemojione.asset_host = ActionController::Base.asset_host
-      Gemojione.asset_path = '/assets/emoji'
+      Gemojione.asset_host ||= ActionController::Base.asset_host
+      Gemojione.asset_path ||= '/assets/emoji'
     end
 
     rake_tasks do
